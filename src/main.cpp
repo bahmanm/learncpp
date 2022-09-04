@@ -14,6 +14,7 @@ int main() {
   enum class Status {start, ip, won, lost, end};
   Status gamestat {Status::start};
   int points_to_make{0};
+
   while (Status::end != gamestat) {
     if (Status::won == gamestat) {
       std::cout << "You won." << std::endl;
@@ -27,6 +28,7 @@ int main() {
       int dice1{ roll_dice() }, dice2{ roll_dice() };
       int points{dice1 + dice2};
       std::cout << fmt::format("You rolled {} and {}.\n", dice1, dice2);
+
       if (Status::start == gamestat) {
         if (7 == points || 11 == points) {
           gamestat = Status::won;
@@ -45,6 +47,7 @@ int main() {
       }
     }
   }
+
   std::cout << "Bye." << std::endl;
   return 0;
 }
